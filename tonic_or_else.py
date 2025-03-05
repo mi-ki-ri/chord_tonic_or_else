@@ -9,22 +9,26 @@ tonic_list = []
 for i in range(12):
     tmp_tonic_list = []
     for appendix in appendixes:
-        curent_chord = bass_chord.chord + appendix
-        print(curent_chord)
-        print(Chord(curent_chord).components())
+        current_chord = bass_chord.chord + appendix
+        print(current_chord)
+        print(Chord(current_chord).components())
 
         if (
-            "F" in Chord(curent_chord).components()
-            and "B" in Chord(curent_chord).components()
+            "F" in Chord(current_chord).components()
+            and "B" in Chord(current_chord).components()
         ):
             print("Dominant")
-        elif "F" in Chord(curent_chord).components():
-            print("Subdominant")
-        elif "Ab" in Chord(curent_chord).components():
+        elif (
+            "F" in Chord(current_chord).components()
+            and "Ab" in Chord(current_chord).components()
+        ):
             print("Subdominant-Minor")
+        elif "F" in Chord(current_chord).components():
+            print("Subdominant")
+
         else:
             print("Tonic")
-            tmp_tonic_list.append(curent_chord)
+            tmp_tonic_list.append(current_chord)
 
         print("===================================")
     tonic_list.append(tmp_tonic_list)
